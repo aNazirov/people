@@ -6,7 +6,9 @@
   "scripts": {
     "start:dev": "ts-node-dev --respawn --transpile-only src/index.ts",
     "start:prod": "npm run build && node ./dist/src/index.js",
-    "build": "npx tsc"
+    "client-install": "npm install --prefix client",
+    "client": "npm run start --prefix client",
+    "start": "concurrently \"npm run start:dev\" \"npm run client\""
   },
   "author": "",
   "license": "ISC",
